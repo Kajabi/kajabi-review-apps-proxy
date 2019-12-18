@@ -1,9 +1,9 @@
 Kajabi Review Apps Proxy
 ------------------------
 
-This is a proxy deployed to fly.io under the name `kajabi-review-apps-proxy`. Its purpose is to proxy nice-looking, SSL-enabled wildcard hostnames to the Heroku app's randomized hostname.
+This is a proxy deployed to fly.io under the name `kajabi-review-apps-proxy`. Its purpose is to proxy nice-looking, SSL-enabled wildcard hostnames to Kajabi's Review Apps, which by default are given non-descriptive randomized URLs.
 
-## Example:
+### Example:
 
 Given a Review App attached to PR 123
 
@@ -15,4 +15,4 @@ would all be proxied to (for example)
 
     https://kajabi-pipeline-rev-abc123.herokuapp.com
 
-The proxy expects a CNAME to be available in the above example at `pr-123.kajabi-staging.com` which specifies the Heroku hostname associated with the Review App. This CNAME, and the others required to route to Fly, are added during the postdeploy rake task of the Review App.
+The proxy expects a CNAME to be available in the above example at `pr-123.kajabi-staging.com` which specifies the Heroku hostname associated with the Review App. This CNAME, and the others required to route to Fly, are added during the postdeploy rake task of the Review Apps.
