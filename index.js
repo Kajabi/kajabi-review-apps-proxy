@@ -1,13 +1,13 @@
 import proxy from '@fly/proxy'
 import { responseCache } from "@fly/cache"
 
-// Proxy requests matching the pattern: *.pr-123.kajabi-staging.com to the CNAME
-// located at pr-123.kajabi-staging.com, which will be the Review App's
+// Proxy requests matching the pattern: *.brentd-123.kajabi-staging.com to the CNAME
+// located at brentd-123.kajabi-staging.com, which will be the Review App's
 // randomized Heroku hostname.
 fly.http.respondWith(function(req) {
-  const url = new URL(req.url)
-  const identifier = url.host.match(/\.(pr-\d+)\./)[1]
-  const lookup = `${identifier}.kajabi-staging.com`
+  const url        = new URL(req.url)
+  const identifier = url.host.match(/^.+?\.(.+?)\.(my)?kajabi-staging\.com$/)[1]
+  const lookup     = `${identifier}.kajabi-staging.com`
 
   return resolveDnsRecord(lookup, 'CNAME').then(herokuHostName => {
     return proxy(`https://${herokuHostName}`, {})(req)
