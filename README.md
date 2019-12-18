@@ -1,7 +1,7 @@
 Kajabi Review Apps Proxy
 ------------------------
 
-This is a proxy deployed to fly.io under the name `kajabi-review-apps-proxy`. Its purpose is to proxy nice-looking, SSL-enabled wildcard hostnames to Kajabi's Review Apps, which by default are given non-descriptive randomized URLs.
+This is a proxy deployed to fly.io under the name `kajabi-review-apps`. Its purpose is to proxy nice-looking, SSL-enabled wildcard hostnames to Kajabi's Review Apps, which by default are given non-descriptive randomized URLs.
 
 ### Example:
 
